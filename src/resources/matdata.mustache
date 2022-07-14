@@ -1,0 +1,14 @@
+{
+    "$typeid": "hxgn.pd:MatData-1.0.0",
+    "name": "{{name}}",
+    "classification": {
+       {{#classification}}
+          {{> datapoint}}{{^last}}, {{/last}}
+       {{/classification}}
+    },
+    "properties": {
+       {{#properties}}
+          {{> propdata}}{{^last}}, {{/last}}
+       {{/properties}}
+    }
+}

@@ -1,0 +1,18 @@
+{{#numeric}}
+"dataSet": [
+    {
+        "$typeid": "{{typeId}}",
+        "value": [
+            {{value}}
+        ]
+    }
+]
+{{/numeric}}
+{{^numeric}}
+"dataSet": [
+    {
+        "$typeid": "{{typeId}}",
+        "value":  "{{value}}"
+    }
+]
+{{/numeric}}

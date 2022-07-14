@@ -1,6 +1,23 @@
-# Material Data Generator
+# Fake Material Data Generator
 
-# Build & Test Repo
+Generate fake material data for testing and benchmarks.
+
+# Contributing
+
+Please make sure that all the data and use-cases are sanitized for sharing in the public space.
+
+# Getting Started
+
+Needed dependencies
+```
+$ node --version
+v16.13.1
+
+$ npm --version
+8.1.2
+```
+
+# Build & Test
 
 ```
 npm run clean
@@ -44,11 +61,6 @@ const meta = {
     arrayIntegralPart: () => randomInt(2) // <- float array properties - array integral part (2 or less)
 }
 const matJson = simpleMaterialJson(meta);
-```
-
-# More Config
-
-```ts
 ```
 
 ## Disclaimer

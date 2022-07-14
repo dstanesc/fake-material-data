@@ -1,6 +1,6 @@
 {
-  "name": "@dstanesc/mat-data",
-  "description": "Material synthetic data generation",
+  "name": "@dstanesc/fake-material-data",
+  "description": "Materials synthetic data generation",
   "version": "0.0.1",
   "homepage": "https://fluidframework.com",
   "repository": "https://github.com/dstanesc/FluidData",

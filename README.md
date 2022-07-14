@@ -7,7 +7,7 @@ Generate fake material data for testing and benchmarks.
 ```sh
 npm install @dstanesc/fake-material-data
 ```
-# Quick Usage
+## Quick Usage
 ```ts
 import {
     simpleMaterialJson
@@ -15,7 +15,7 @@ import {
 const matJson = simpleMaterialJson(); // <- classification count 4, property count 100, array property size 20
 ```
 
-# Minimal Config
+## Minimal Config
 ```ts
 import {
     simpleMeta,
@@ -25,7 +25,7 @@ const meta = simpleMeta([4, 500, 100]); // <- classification count 8, property c
 const matJson = simpleMaterialJson(meta);
 ```
 
-# Simple Config
+## Simple Config
 
 ```ts
 import {

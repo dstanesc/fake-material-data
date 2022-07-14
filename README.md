@@ -30,7 +30,7 @@ npm run test
 ```ts
 import {
     simpleMaterialJson
-} from '@dstanesc/mat-data'
+} from '@dstanesc/fake-material-data'
 const matJson = simpleMaterialJson(); // <- classification count 4, property count 100, array property size 20
 ```
 
@@ -39,7 +39,7 @@ const matJson = simpleMaterialJson(); // <- classification count 4, property cou
 import {
     simpleMeta,
     simpleMaterialJson
-} from '@dstanesc/mat-data'
+} from '@dstanesc/fake-material-data'
 const meta = simpleMeta([4, 500, 100]); // <- classification count 8, property count 500, array property size 100
 const matJson = simpleMaterialJson(meta);
 ```
@@ -51,7 +51,7 @@ import {
     simpleMaterialJson,
     randomInt,
     byteSize
-} from '@dstanesc/mat-data'
+} from '@dstanesc/fake-material-data'
 
 const meta = {
     classSize: () => 2, // <- classification count 2

@@ -110,7 +110,7 @@ export function simpleMaterialMetadata(meta: any): any {
     const values = [intValue, stringValue, floatValue, intArrayValue, floatArrayValue];
 
     const metadata = {
-        name: () => faker.name.findName(),
+        name: () => faker.name.fullName(),
         classification: {
             size: meta.classSize(),
             name: () => faker.word.noun(),

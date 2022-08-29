@@ -1,7 +1,7 @@
 {
   "name": "@dstanesc/fake-material-data",
   "description": "Materials synthetic data generation",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/dstanesc/fake-material-data",
   "repository": "https://github.com/dstanesc/fake-material-data",
   "license": "MIT",

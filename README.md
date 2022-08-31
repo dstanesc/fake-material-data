@@ -1,6 +1,10 @@
 # Fake Material Data Generator
 
-Generate fake material data for testing and benchmarks.
+Generate fake material data for testing and benchmarks. 
+
+## Updates
+
+> _08/31/2022_: Eliminated the runtime dependency to _Nodejs_ so that the material generation is possible in the browser / webpack w/o polyfills. 
 
 ## Install
 
@@ -50,7 +54,7 @@ Please make sure that all the data and use-cases are sanitized for sharing in th
 
 ## Getting Started
 
-Needed dependencies
+Build dependencies
 ```
 $ node --version
 v16.13.1

@@ -1,22 +1,80 @@
-import fs from 'fs'
 import Mustache from 'mustache';
 import { faker } from '@faker-js/faker';
 import { v4 as uuid } from 'uuid';
-import { Buffer } from 'buffer';
-import filedirname from 'filedirname'
-import path from 'path'
 
-export function readResource(fileName: string): any {
-    const [__filename, __dirname] = filedirname(import.meta.url);
-    return read(path.join(__dirname, 'resources', fileName));
-}
 
-export function read(path) {
-    return fs.readFileSync(path, 'utf8').toString();
-}
+const UNIT_MUSTACHE =
+
+    `"unit": {
+    "$typeid": "hxgn.uq:Expression-1.0.0",
+    "expression": "{{unitExpr}}"
+}`
+
+const PROPDATA_MUSTACHE =
+
+    `"PropertyData/{{uuid}}": {
+    "$typeid": "hxgn.pd:PropertyData-1.0.0",
+    "label": "{{label}}",
+    "name": "{{name}}",
+    "value": [
+        {
+            "$typeid": "hxgn.rt:DataPoint-1.0.0",
+            {{> dataset}},
+            {{> unit}}
+        }
+    ]
+}`
+
+const MATDATA_MUSTACHE =
+
+    `{
+    "$typeid": "hxgn.pd:MatData-1.0.0",\
+    "name": "{{name}}",\
+    "classification": {\
+       {{#classification}}\
+          {{> datapoint}}{{^last}}, {{/last}}\
+       {{/classification}}\
+    },\
+    "properties": {\
+       {{#properties}}\
+          {{> propdata}}{{^last}}, {{/last}}\
+       {{/properties}}\
+    }\
+}`
+
+
+const DATASET_MUSTACHE =
+
+    `{{#numeric}}
+"dataSet": [
+    {
+        "$typeid": "{{typeId}}",
+        "value": [
+            {{value}}
+        ]
+    }
+]
+{{/numeric}}
+{{^numeric}}
+"dataSet": [
+    {
+        "$typeid": "{{typeId}}",
+        "value":  "{{value}}"
+    }
+]
+{{/numeric}}`
+
+const DATAPOINT_MUSTACHE =
+
+    `"DataPoint/{{uuid}}": {
+    "$typeid": "hxgn.rt:DataPoint-1.0.0",
+        {{> dataset}},
+        "label": "{{label}}",
+        "name": "{{name}}"
+}`
 
 export function byteSize(text: string) {
-    return Buffer.byteLength(text, 'utf8')
+    return new TextEncoder().encode(text).byteLength
 }
 
 export function simpleMeta(params?: any) {
@@ -44,15 +102,16 @@ export function simpleMaterialJson(meta?: any): any {
 }
 
 export function materialJson(data: any): any {
-    const mat = readResource('matdata.mustache');
-    const datapoint = readResource('datapoint.mustache');
-    const dataset = readResource('dataset.mustache');
-    const propdata = readResource('propdata.mustache');
-    const unit = readResource('unit.mustache');
+    const mat = MATDATA_MUSTACHE;
+    const datapoint = DATAPOINT_MUSTACHE;
+    const dataset = DATASET_MUSTACHE;
+    const propdata = PROPDATA_MUSTACHE;
+    const unit = UNIT_MUSTACHE;
     const output = Mustache.render(mat, data, { datapoint: datapoint, dataset: dataset, propdata: propdata, unit: unit });
     const parsed = JSON.parse(output);
     return parsed;
 }
+
 
 export function randomFloatArray(size: number, whole: number): number[] {
     return Array(size).fill(0).map((_, idx) => randomFloat(whole));

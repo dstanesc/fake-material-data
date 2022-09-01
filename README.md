@@ -4,7 +4,7 @@ Generate fake material data for testing and benchmarks.
 
 ## Updates
 
-> _08/31/2022_: Eliminated the runtime dependency to _Nodejs_ so that the material generation is possible in the browser / webpack w/o polyfills. 
+> _v0.0.4_: Eliminated the runtime dependency to _Nodejs_ so that the material generation is possible in the browser / webpack w/o polyfills. 
 
 ## Install
 
